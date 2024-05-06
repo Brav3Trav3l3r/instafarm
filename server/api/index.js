@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const app = require('../app');
+const app = require('../src/app');
 
 require('dotenv-flow').config();
 

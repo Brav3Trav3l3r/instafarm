@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "src/api/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/api/index.js",
-    "start:prod": "cross-env NODE_ENV=production nodemon src/api/index.js"
+    "start:prod": "cross-env NODE_ENV=production nodemon api/index.js"
   },
   "keywords": [],
   "author": "",
