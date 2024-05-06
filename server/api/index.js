@@ -1,7 +1,7 @@
+require('dotenv-flow').config();
+
 const mongoose = require('mongoose');
 const app = require('../src/app');
-
-require('dotenv-flow').config();
 
 console.log(process.env.NODE_ENV);
 
