@@ -15,10 +15,6 @@ exports.register = catchAsync(async (req, res) => {
     phoneNumber,
   });
 
-  // const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
-  //   expiresIn: process.env.JWT_EXPIRES_IN,
-  // });
-
   res.status(200).json({
     status: 'success',
     data: { user },
@@ -38,36 +34,8 @@ exports.login = catchAsync(async (req, res) => {
     throw new AppError('Email or password mismatch', 400);
   }
 
-  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-
   res.status(200).json({
     status: 'success',
-    data: { user, token },
+    data: { user },
   });
-});
-
-exports.protect = catchAsync(async (req, res, next) => {
-  const { authorization } = req.headers;
-
-  if (!authorization) {
-    throw new AppError('Please login to access this route', 401);
-  }
-
-  const token = authorization.split(' ')[1];
-
-  const decoded = await promisify(jwt.verify)(
-    token,
-    process.env.JWT_SECRET_KEY
-  );
-
-  const user = await User.findOne({ _id: decoded.id });
-  if (!user) {
-    throw new AppError('User does not exist!', 401);
-  }
-
-  req.user = user;
-
-  next();
 });
