@@ -54,23 +54,18 @@ export async function logout() {
 
 export async function getUserInfo() {
   const userId = await getUserId();
-  console.log(userId);
 
   if (!userId) {
     redirect("/sign-in");
   }
 
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/${userId}`
-    );
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/${userId}`
+  );
 
-    if (!res.ok) {
-      throw new Error("Could not retrieve user info");
-    }
-
-    return res.json();
-  } catch (e) {
-    console.log(e);
+  if (!res.ok) {
+    throw new Error("Could not retrieve user info");
   }
+
+  return res.json();
 }
