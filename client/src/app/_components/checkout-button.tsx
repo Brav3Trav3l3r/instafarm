@@ -6,6 +6,7 @@ import { createOrder } from "../_actions/create-order";
 import { Order } from "../_definitions/order";
 import { getUserInfo } from "../_actions/auth";
 import { useCart } from "react-use-cart";
+import getBaseUrl from "@/utils/get-base-url";
 
 let cashfree;
 
@@ -34,7 +35,7 @@ const order = {
     customer_phone: "",
   },
   order_meta: {
-    return_url: "http://localhost:3000/",
+    return_url: getBaseUrl(true),
   },
 };
 
