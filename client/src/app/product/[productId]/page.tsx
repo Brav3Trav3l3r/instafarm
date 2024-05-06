@@ -26,7 +26,7 @@ export default async function Page({
   const { data: product } = await getProduct(productId);
 
   return (
-    <section className="text-gray-600 body-font overflow-hidden container">
+    <section className="text-gray-600 body-font overflow-hidden container my-8">
       <div className="lg:w-4/5 mx-auto flex flex-wrap mt-16">
         <img
           alt="ecommerce"

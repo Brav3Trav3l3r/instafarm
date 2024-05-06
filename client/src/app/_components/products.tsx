@@ -35,7 +35,7 @@ export default async function Products() {
     <>
       <p className="text-4xl font-semibold">Our Products</p>
 
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {data.map((product) => (
           <div key={product._id} className="shadow-xl p-4">
             <Link
