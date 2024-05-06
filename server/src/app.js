@@ -6,6 +6,7 @@ const gloablErrorHandler = require('./controllers/errorController');
 const authRouter = require('./routes/authRoute');
 const productRouter = require('./routes/productRoute');
 const userRouter = require('./routes/userRotue');
+const orderRouter = require('./routes/orderRotue');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
 
 app.all('*', (req, res) => {
   res.sendStatus(404);
